@@ -31,23 +31,24 @@ def csv_read(filepath):
     csvFile.close()
     return data
 
-def csv_write(filepath, data):
+def csv_write(filepath, head, data):
     csvFile = file(filepath,'wb')
     csvFile.write(codecs.BOM_UTF8) 
     writer = csv.writer(csvFile)
+    writer.writerow(head)
     m = len(data)
     for i in range(m):
-        print data[i]
-        writer.writerow([data[i]])
+        writer.writerow(data[i])
     csvFile.close()
 
 if __name__ == "__main__":
     #文件内容为"Im %(name)s. Im %(age)d year old"
     #file_read('D:\\test.txt')
     
-    data = csv_read("low.csv") 
+    #data = csv_read("low.csv") 
     
-    data =[u'用户', u'密码']
-    csv_write('csvFile.csv', data)
+    head =[u'用户', u'密码']
+    data = [['yangxinyi', '12345'], ['yang', '111']]
+    csv_write('csvFile.csv', head, data)
     
     
