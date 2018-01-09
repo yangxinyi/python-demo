@@ -57,11 +57,13 @@ if __name__ == '__main__':
     #print dir_exception()
     #temp_convert("xyz")
     #finally_error()
-    num_eq_0(5)
-    multi_error('ss') or multi_error(10)
+    #num_eq_0(5)
+    #multi_error('ss') or multi_error(10)
+    
+    # 用try/except语句代替if/else语句
     try:
-        num_gt_10(5)
+        num_gt_10(0)
     except CustomicError, e:
-        raise
+        print "num less than 10"
     else:
-        print "well run"
+        print "num greater than 10"
